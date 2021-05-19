@@ -39,33 +39,36 @@ console.log("New Year Chaos!");
 
 function minimumBribes(q) {
     let numOfBribes = 0;
-    let final = null
+    
     
     // iterate through q backwards
-    for (let i = q.length; i >= 0; i--) {
-        const diff = ((q[i]-1)-i)
-        console.log(diff)
-        
-        if (diff > 2) {
-            final = "Too chaotic";
-            break;
-        } else if (0 < diff < 3) {
-            numOfBribes += diff;
-            console.log(numOfBribes)
-        };
-        
-        
-    }
-    // an int's index should never be more than 2 less than the value of the int-1, so 5-1=4 and it's index should never be < 2
-    // if the index value > 2, return "Too chaotic"; else add the diff to numOfBribes and continue the loop
-    // how do you break a loop and make a return if a certain condition is met?
+    for (let i = q.length-1; i >=0; i--) {
 
-    // once the loop finishes, return the numOfBribes; or print numOfBribes, not sure what that means
-    return final
+        const diff = ((q[i]-1)-i)
+        console.log("index", i, "num", q[i], "diff", diff)
+        if (diff > 2) {
+            console.log("Too chaotic");
+            return;
+        } else if (diff > 0) {
+            
+            numOfBribes += diff;
+        } else if (q[i] >= i && q[i] > q[i+1]) {
+            
+            numOfBribes += Math.abs(diff);
+        }
+        
+        console.log("numOfBribes", numOfBribes)
+    }
+    
+    console.log(numOfBribes)
 };
 
 // console.log("ex1", minimumBribes([2,1,5,3,4]));
 // console.log("ex2", minimumBribes([2,5,1,3,4]));
 // console.log("ex3", minimumBribes([5,1,2,3,7,8,6,4]));
-// console.log("ex4", minimumBribes([1,2,5,3,7,8,6,4]));
+console.log("ex4", minimumBribes([1,2,5,3,7,8,6,4]));
 // console.log("ex5", minimumBribes([1,2,5,3,4,7,8,6]));
+// console.log("ex6", minimumBribes([1,2,3]));
+
+// [1, 4, 2, 3, 5]
+// [1, 4, 5, 2, 3]
