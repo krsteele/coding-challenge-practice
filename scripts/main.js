@@ -1,16 +1,30 @@
-console.log("String Repeat!");
+console.log("Hi!")
 
-// https://www.codewars.com/kata/57a0e5c372292dd76d000d7e
+// Write function bmi that calculates body mass index (bmi = weight / height2).
 
-// Write a function called repeatStr which repeats the given string exactly n TimeRanges
+// if bmi <= 18.5 return "Underweight"
 
-function repeatStr (n, s) {
+// if bmi <= 25.0 return "Normal"
 
-    return s.repeat(n);
+// if bmi <= 30.0 return "Overweight"
+
+// if bmi > 30 return "Obese"
+
+
+
+function bmi(weight, height) {
+    const bmi = (weight / (height * height))
+
+    if (bmi <= 18.5){
+        return "Underweight"
+    } else if (bmi <= 25.0){
+        return "Normal"
+    } else if (bmi <= 30.0){
+        return "Overweight"
+    } else if (bmi > 30){
+        return "Obese"
     }
 
-console.log(repeatStr(6, "I")) //"IIIIII"
-console.log(repeatStr(5, "Hello")) // "HelloHelloHelloHelloHello"
-console.log(repeatStr(3, "*"))
-console.log(repeatStr(5, "#"))
-console.log(repeatStr(2, "ha "))
+  }
+
+console.log(bmi(80, 1.80))
