@@ -1,30 +1,15 @@
-console.log("Hi!")
+console.log("second live coding challenge!")
 
-// Write function bmi that calculates body mass index (bmi = weight / height2).
+function multiTable(number) {
+    let table = ""
+    for (let m=1; m<=10; m++) {
+    
+        table += `${m} * ${number} = ${m*number}`
 
-// if bmi <= 18.5 return "Underweight"
-
-// if bmi <= 25.0 return "Normal"
-
-// if bmi <= 30.0 return "Overweight"
-
-// if bmi > 30 return "Obese"
-
-
-
-function bmi(weight, height) {
-    const bmi = (weight / (height * height))
-
-    if (bmi <= 18.5){
-        return "Underweight"
-    } else if (bmi <= 25.0){
-        return "Normal"
-    } else if (bmi <= 30.0){
-        return "Overweight"
-    } else if (bmi > 30){
-        return "Obese"
+        m === 10 ? "" : table += "\n"
     }
-
+    return table
   }
 
-console.log(bmi(80, 1.80))
+  console.log(multiTable(5))
+  console.log(multiTable(1))
